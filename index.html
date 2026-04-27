@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nautical Nowledge</title>
+    <title>Knautical Knowledge</title>
+    <script src="quiz.js" defer></script>
 </head>
 <body>
-    
+    <div id="start">
+        <fieldset id="startPath">
+            <legend>Quiz Difficulty</legend>
+            <input type="button" id="noviceButton" value="Novice">
+            <input type="button" id="advancedButton" value="Advanced">
+        </fieldset>
+    </div>
+    <div id="novice">
+        <form id="novQuiz">
+        </form>
+    </div>
+    <div id="advanced">
+        <form id="advQuiz">
+        </form>
+    </div>
 </body>
 </html>
