@@ -1,5 +1,5 @@
 ## Nautical knowledge quiz game that saves user high-score locally.
-
+---
 2 quizzes 'Novice' & 'Advanced'.
 Each quiz has a database of 20 questions with 10 of them selected at random for each quiz attempt.
 ---
