@@ -23,12 +23,12 @@ Example Top-Scores:
 
 ## Core Requirements Coverage
 
-    | Requirement | Implementation |
-    |---|---|
-    | If Statements & Loops | When generating a quiz, each question is made by going through a loop that gets a random number, & selects the corresponding question from that pool if that question hasn't been used in that quiz yet. If statement to check if a user got a question right or not. |
-    | Event Listeners | Click listeners for the quiz selection, question answers, question advance button, submit listener, back to home button, & delete scores button. |
-    | DOM Element Creation | Quiz questions & answers, as well as score will be dynamically displayed with 'createElement()' & 'appendChild()'. |
-    | Classes & Subclasses | A base 'question' class that holds the question and any image aids. 'mc' & 'sa' extends 'question' to specify which type of question it will be (multiple choice or select all). |
+| Requirement | Implementation |
+|---|---|
+| If Statements & Loops | When generating a quiz, each question is made by going through a loop that gets a random number, & selects the corresponding question from that pool if that question hasn't been used in that quiz yet. If statement to check if a user got a question right or not. |
+| Event Listeners | Click listeners for the quiz selection, question answers, question advance button, submit listener, back to home button, & delete scores button. |
+| DOM Element Creation | Quiz questions & answers, as well as score will be dynamically displayed with 'createElement()' & 'appendChild()'. |
+| Classes & Subclasses | A base 'question' class that holds the question and any image aids. 'mc' & 'sa' extends 'question' to specify which type of question it will be (multiple choice or select all). |
 
 ## Additional Requirements
 JSON & Local Storage to hold the user's scores and the dates of those scores.
