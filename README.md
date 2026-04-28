@@ -6,6 +6,8 @@ Student: Daniel Smith | Repo: `WEB-115_FinalProject_Smith`
 A web app that quizzes users on how well their sailing knowledge is.
 The target user is anyone that wants to test their sailing knowledge and track how much they have learned over-time.
 
+---
+
 ## Features
 - The user has an option of 2 different 10 question quizzes.
 - The 2 quizzes will be called "Novice", and "Advanced".
@@ -20,6 +22,8 @@ Example Top-Scores:
 1. Score: 7/10 Time: 4:00
 2. Score: 7/10 Time: 4:32
 3. Score 6/10 Time: 3:22
+
+---
 
 ## Core Requirements Coverage
 
