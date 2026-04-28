@@ -2,6 +2,8 @@
 **WEB-115 Final Project Proposal**
 Student: Daniel Smith | Repo: `WEB-115_FinalProject_Smith`
 
+---
+
 ## Overview
 A web app that quizzes users on how well their sailing knowledge is.
 The target user is anyone that wants to test their sailing knowledge and track how much they have learned over-time.
