@@ -34,10 +34,16 @@ Example Top-Scores:
 | DOM Element Creation | Quiz questions & answers, as well as score will be dynamically displayed with 'createElement()' & 'appendChild()'. |
 | Classes & Subclasses | A base 'question' class that holds the question and any image aids. 'mc' & 'sa' extends 'question' to specify which type of question it will be (multiple choice or select all). |
 
+---
+
 ## Additional Requirements
 JSON & Local Storage to hold the user's scores and the dates of those scores.
+
+---
 
 ## Tech Stack
 - HTML, CSS, Vanilla JavaScript
 - 'localStorage' for holding scores
 - VS Code + GitHub
+
+---
