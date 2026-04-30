@@ -8,6 +8,7 @@ let advQuiz = document.getElementById("advQuiz");
 let timer = document.getElementById("timer");
 import * as questions from "./questions.js";
 let questionCount;
+let novDiv = document.getElementById("novDiv");
 
 console.log(questions.nov)
 
@@ -87,7 +88,7 @@ class sa extends question {
 }
 
 function getQuestion() {
-    questionCount = 0;
+    questionCount = 3;
     for (let i = 0; i <= questionCount; i++) {
         let randQues = Math.random() * 10;
         let newQues = document.createElement("p");
@@ -98,24 +99,144 @@ function getQuestion() {
             newQues.id = i;
             newQues.textContent = questions.nov[0];
             console.log(newQues);
+            
+            let questA = document.createElement("input");
+            questA.type = "radio";
+            questA.id = "a" + i;
+            questA.name = "question" + i;
+            questA.value = questions.nov[0][0];
+            let labelA = document.createElement("label");
+            labelA.id = "l" + i;
+            labelA.setAttribute("for", questA.id);
+            labelA.innerHTML = questions.nov[0][0];
+            labelA.appendChild(questA);
+            novDiv.appendChild(questA);
+            console.log(questA);
+            console.log(labelA);
+            novDiv.insertBefore(labelA.id, questA.id);
+
+            let questB = document.createElement("input");
+            questB.type = "radio";
+            questB.id = "b" + i;
+            questB.name = "question" + i;
+            questB.value = questions.nov[0][1];
+            let labelB = document.createElement("label");
+            labelB.id = "l" + i;
+            labelB.setAttribute("for", questB.id);
+            labelB.innerHTML = questions.nov[0][1];
+            labelB.appendChild(questB);
+            novDiv.appendChild(questB);
+            console.log(questB);
+            console.log(labelB);
+            novDiv.insertBefore(labelB.id, questB.id);
         } else if (randQues <= 5) {
-            novice.appendChild(newQues.i);
+            novice.appendChild(newQues);
             newQuesAns = new mc(false, true, false, false);
             newQues.id = i;
             newQues.textContent = questions.nov[1];
             console.log(newQues);
+
+            let questA = document.createElement("input");
+            questA.type = "radio";
+            questA.id = "a" + i;
+            questA.name = "question" + i;
+            questA.value = questions.nov[1][0];
+            let labelA = document.createElement("label");
+            labelA.id = "l" + i;
+            labelA.setAttribute("for", questA.id);
+            labelA.appendChild(questA);
+            labelA.innerHTML = questions.nov[1][0];
+            novDiv.appendChild(questA);
+            console.log(questA);
+            console.log(labelA);
+            novDiv.insertBefore(labelA.id, questA.id);
+
+            let questB = document.createElement("input");
+            questB.type = "radio";
+            questB.id = "b" + i;
+            questB.name = "question" + i;
+            questB.value = questions.nov[1][1];
+            let labelB = document.createElement("label");
+            labelB.id = "l" + i;
+            labelB.setAttribute("for", questB.id);
+            labelB.innerHTML = questions.nov[1][1];
+            labelB.appendChild(questB);
+            novDiv.appendChild(questB);
+            console.log(questB);
+            console.log(labelB);
+            novDiv.insertBefore(labelB.id, questB.id);
         } else if (randQues <= 7.5) {
-            novice.appendChild(newQues.i);
+            novice.appendChild(newQues);
             newQuesAns = new mc(false, false, true, false);
             newQues.id = i;
             newQues.textContent = questions.nov[2];
             console.log(newQues);
+
+            let questA = document.createElement("input");
+            questA.type = "radio";
+            questA.id = "a" + i;
+            questA.name = "question" + i;
+            questA.value = questions.nov[2][0];
+            labelA.id = "l" + i;
+            let labelA = document.createElement("label");
+            labelA.setAttribute("for", questA.id);
+            labelA.appendChild(questA);
+            labelA.innerHTML = questions.nov[2][0];
+            novDiv.appendChild(questA);
+            console.log(questA);
+            console.log(labelA);
+            novDiv.insertBefore(labelA.id, questA.id);
+
+            let questB = document.createElement("input");
+            questB.type = "radio";
+            questB.id = "b" + i;
+            questB.name = "question" + i;
+            questB.value = questions.nov[2][1];
+            let labelB = document.createElement("label");
+            labelB.id = "l" + i;
+            labelB.setAttribute("for", questB.id);
+            labelB.innerHTML = questions.nov[2][1];
+            labelB.appendChild(questB);
+            novDiv.appendChild(questB);
+            console.log(questB);
+            console.log(labelB);
+            novDiv.insertBefore(labelB.id, questB.id);
         } else if (randQues <= 10) {
-            novice.appendChild(newQues.i);
+            novice.appendChild(newQues);
             newQuesAns = new mc(false, false, false, true);
             newQues.id = i;
             newQues.textContent = questions.nov[3];
             console.log(newQues);
+
+            let questA = document.createElement("input");
+            questA.type = "radio";
+            questA.id = "a" + i;
+            questA.name = "question" + i;
+            questA.value = questions.nov[3][0];
+            let labelA = document.createElement("label");
+            labelA.id = "l" + i;
+            labelA.setAttribute("for", questA.id);
+            labelA.appendChild(questA);
+            labelA.innerHTML = questions.nov[3][0];
+            novDiv.appendChild(questA);
+            console.log(questA);
+            console.log(labelA);
+            novDiv.insertBefore(labelA.id, questA.id);
+
+            let questB = document.createElement("input");
+            questB.type = "radio";
+            questB.id = "b" + i;
+            questB.name = "question" + i;
+            questB.value = questions.nov[3][1];
+            let labelB = document.createElement("label");
+            labelB.id = "l" + i;
+            labelB.setAttribute("for", questB.id);
+            labelB.innerHTML = questions.nov[3][1];
+            labelB.appendChild(questB);
+            novDiv.appendChild(questB);
+            console.log(questB);
+            console.log(labelB);
+            novDiv.insertBefore(labelB.id, questB.id);
         }
     }
 }
