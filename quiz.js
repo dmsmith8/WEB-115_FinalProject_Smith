@@ -9,6 +9,11 @@ let timer = document.getElementById("timer");
 import * as questions from "./questions.js";
 let questionCount;
 let novDiv = document.getElementById("novDiv");
+let correctCount = 0;
+let quesAns0 = false;
+let quesAns1 = false;
+let quesAns2 = false;
+let quesAns3 = false;
 
 console.log(questions.nov)
 
@@ -44,6 +49,7 @@ advanced.appendChild(newQuiz);
 novice.appendChild(newQuiz);
 newQuiz.type = "button";
 newQuiz.value = "New Quiz";
+questionCount = 0;
 
 start.style.visibility = "visible";
 novice.style.visibility = "hidden";
@@ -61,12 +67,18 @@ newQuiz.addEventListener("click", function() {
     advanced.style.visibilty = "hidden";
     submit.style.visibility = "hidden";
     newQuiz.style.visibility = "hidden";
+    novDiv.innerHTML = "";
+    quesAns0 = false;
+    quesAns1 = false;
+    quesAns2 = false;
+    quesAns3 = false;
 });
 
 class question {
     constructor(quesNum, image) {
         this.quesNum = quesNum;
         this.image = image;
+        this.answered = false;
     }
 }
 class mc extends question {
@@ -88,17 +100,25 @@ class sa extends question {
 }
 
 function getQuestion() {
-    questionCount = 3;
+    questionCount = 0;
     for (let i = 0; i <= questionCount; i++) {
+        questionCount = 3;
         let randQues = Math.random() * 10;
         let newQues = document.createElement("p");
         let newQuesAns;
+        let quesDiv = document.createElement("div");
+        correctCount = 0;
         if (randQues <= 2.5) {
-            novice.appendChild(newQues);
-            newQuesAns = new mc(true, false, false, false);
+            if (quesAns0 === false) {
+            quesAns0 = true;
+            newQuesAns = new mc(true, false, false, false);            
+            quesDiv.appendChild(newQues);
             newQues.id = i;
-            newQues.textContent = questions.nov[0];
+            newQues.textContent = "Question 1";
             console.log(newQues);
+            quesDiv.id = "div" + i;
+            novDiv.appendChild(quesDiv);
+            newQuesAns.answered = true;
             
             let questA = document.createElement("input");
             questA.type = "radio";
@@ -110,10 +130,15 @@ function getQuestion() {
             labelA.setAttribute("for", questA.id);
             labelA.innerHTML = questions.nov[0][0];
             labelA.appendChild(questA);
-            novDiv.appendChild(questA);
+            quesDiv.appendChild(questA);
             console.log(questA);
             console.log(labelA);
-            novDiv.insertBefore(labelA.id, questA.id);
+            quesDiv.insertBefore(labelA, questA);
+            let aIsTrue = newQuesAns.a;
+            questA.addEventListener("click", function() {
+                correctCount++;
+                console.log(correctCount);
+            });
 
             let questB = document.createElement("input");
             questB.type = "radio";
@@ -125,16 +150,26 @@ function getQuestion() {
             labelB.setAttribute("for", questB.id);
             labelB.innerHTML = questions.nov[0][1];
             labelB.appendChild(questB);
-            novDiv.appendChild(questB);
+            quesDiv.appendChild(questB);
             console.log(questB);
             console.log(labelB);
-            novDiv.insertBefore(labelB.id, questB.id);
+            quesDiv.insertBefore(labelB, questB);
+            let bIsTrue = newQuesAns.b;
+            } else {
+                console.log("Question used!");
+                randQues = Math.random() * 10;
+            }
         } else if (randQues <= 5) {
-            novice.appendChild(newQues);
-            newQuesAns = new mc(false, true, false, false);
+            if (quesAns1 === false) {
+            quesAns1 = true;
+            newQuesAns = new mc(true, false, false, false);            
+            quesDiv.appendChild(newQues);
             newQues.id = i;
-            newQues.textContent = questions.nov[1];
+            newQues.textContent = "Question 2";
             console.log(newQues);
+            quesDiv.id = "div" + i;
+            novDiv.appendChild(quesDiv);
+            newQuesAns.answered = true;
 
             let questA = document.createElement("input");
             questA.type = "radio";
@@ -146,10 +181,11 @@ function getQuestion() {
             labelA.setAttribute("for", questA.id);
             labelA.appendChild(questA);
             labelA.innerHTML = questions.nov[1][0];
-            novDiv.appendChild(questA);
+            quesDiv.appendChild(questA);
             console.log(questA);
             console.log(labelA);
-            novDiv.insertBefore(labelA.id, questA.id);
+            quesDiv.insertBefore(labelA, questA);
+            let aIsTrue = newQuesAns.a;
 
             let questB = document.createElement("input");
             questB.type = "radio";
@@ -161,31 +197,46 @@ function getQuestion() {
             labelB.setAttribute("for", questB.id);
             labelB.innerHTML = questions.nov[1][1];
             labelB.appendChild(questB);
-            novDiv.appendChild(questB);
+            quesDiv.appendChild(questB);
             console.log(questB);
             console.log(labelB);
-            novDiv.insertBefore(labelB.id, questB.id);
+            quesDiv.insertBefore(labelB, questB);
+            let bIsTrue = newQuesAns.b;
+            questB.addEventListener("click", function() {
+                correctCount++;
+                console.log(correctCount);
+            });
+            }else {
+                console.log("Question used!");
+                randQues = Math.random() * 10;
+            }
         } else if (randQues <= 7.5) {
-            novice.appendChild(newQues);
-            newQuesAns = new mc(false, false, true, false);
+            if (quesAns2 === false) {
+            quesAns2 = true;
+            newQuesAns = new mc(true, false, false, false);            
+            quesDiv.appendChild(newQues);
             newQues.id = i;
-            newQues.textContent = questions.nov[2];
+            newQues.textContent = "Question 3";
             console.log(newQues);
+            quesDiv.id = "div" + i;
+            novDiv.appendChild(quesDiv);
+            newQuesAns.answered = true;
 
             let questA = document.createElement("input");
             questA.type = "radio";
             questA.id = "a" + i;
             questA.name = "question" + i;
             questA.value = questions.nov[2][0];
-            labelA.id = "l" + i;
             let labelA = document.createElement("label");
+            labelA.id = "l" + i;
             labelA.setAttribute("for", questA.id);
             labelA.appendChild(questA);
             labelA.innerHTML = questions.nov[2][0];
-            novDiv.appendChild(questA);
+            quesDiv.appendChild(questA);
             console.log(questA);
             console.log(labelA);
-            novDiv.insertBefore(labelA.id, questA.id);
+            quesDiv.insertBefore(labelA, questA);
+            let aIsTrue = newQuesAns.a;
 
             let questB = document.createElement("input");
             questB.type = "radio";
@@ -197,16 +248,26 @@ function getQuestion() {
             labelB.setAttribute("for", questB.id);
             labelB.innerHTML = questions.nov[2][1];
             labelB.appendChild(questB);
-            novDiv.appendChild(questB);
+            quesDiv.appendChild(questB);
             console.log(questB);
             console.log(labelB);
-            novDiv.insertBefore(labelB.id, questB.id);
+            quesDiv.insertBefore(labelB, questB);
+            let bIsTrue = newQuesAns.b;
+            }else {
+                console.log("Question used!");
+                randQues = Math.random() * 10;
+            }
         } else if (randQues <= 10) {
-            novice.appendChild(newQues);
-            newQuesAns = new mc(false, false, false, true);
+            if (quesAns3 === false) {
+            quesAns3 = true;
+            newQuesAns = new mc(true, false, false, false);            
+            quesDiv.appendChild(newQues);
             newQues.id = i;
-            newQues.textContent = questions.nov[3];
+            newQues.textContent = "Question 4";
             console.log(newQues);
+            quesDiv.id = "div" + i;
+            novDiv.appendChild(quesDiv);
+            newQuesAns.answered = true;
 
             let questA = document.createElement("input");
             questA.type = "radio";
@@ -218,10 +279,11 @@ function getQuestion() {
             labelA.setAttribute("for", questA.id);
             labelA.appendChild(questA);
             labelA.innerHTML = questions.nov[3][0];
-            novDiv.appendChild(questA);
+            quesDiv.appendChild(questA);
             console.log(questA);
             console.log(labelA);
-            novDiv.insertBefore(labelA.id, questA.id);
+            quesDiv.insertBefore(labelA, questA);
+            let aIsTrue = newQuesAns.a;
 
             let questB = document.createElement("input");
             questB.type = "radio";
@@ -233,10 +295,15 @@ function getQuestion() {
             labelB.setAttribute("for", questB.id);
             labelB.innerHTML = questions.nov[3][1];
             labelB.appendChild(questB);
-            novDiv.appendChild(questB);
+            quesDiv.appendChild(questB);
             console.log(questB);
             console.log(labelB);
-            novDiv.insertBefore(labelB.id, questB.id);
+            quesDiv.insertBefore(labelB, questB);
+            let bIsTrue = newQuesAns.b;
+            }else {
+                console.log("Question used!");
+                randQues = Math.random() * 10;
+            }
         }
     }
 }
