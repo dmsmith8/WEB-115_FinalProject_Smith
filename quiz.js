@@ -103,13 +103,12 @@ function getQuestion() {
     questionCount = 0;
     for (let i = 0; i <= questionCount; i++) {
         questionCount = 3;
-        let randQues = Math.random() * 10;
         let newQues = document.createElement("p");
         let newQuesAns;
         let quesDiv = document.createElement("div");
         correctCount = 0;
-        if (randQues <= 2.5) {
-            if (quesAns0 === false) {
+        if (quesAns0 === false) {
+
             quesAns0 = true;
             newQuesAns = new mc(true, false, false, false);            
             quesDiv.appendChild(newQues);
@@ -134,7 +133,6 @@ function getQuestion() {
             console.log(questA);
             console.log(labelA);
             quesDiv.insertBefore(labelA, questA);
-            let aIsTrue = newQuesAns.a;
             questA.addEventListener("click", function() {
                 correctCount++;
                 console.log(correctCount);
@@ -154,13 +152,39 @@ function getQuestion() {
             console.log(questB);
             console.log(labelB);
             quesDiv.insertBefore(labelB, questB);
-            let bIsTrue = newQuesAns.b;
-            } else {
-                console.log("Question used!");
-                randQues = Math.random() * 10;
-            }
-        } else if (randQues <= 5) {
-            if (quesAns1 === false) {
+
+            let questC = document.createElement("input");
+            questC.type = "radio";
+            questC.id = "c" + i;
+            questC.name = "question" + i;
+            questC.value = questions.nov[0][2];
+            let labelC = document.createElement("label");
+            labelC.id = "l" + i;
+            labelC.setAttribute("for", questC.id);
+            labelC.innerHTML = questions.nov[0][2];
+            labelC.appendChild(questC);
+            quesDiv.appendChild(questC);
+            console.log(questC);
+            console.log(labelC);
+            quesDiv.insertBefore(labelC, questC);
+
+            let questD = document.createElement("input");
+            questD.type = "radio";
+            questD.id = "d" + i;
+            questD.name = "question" + i;
+            questD.value = questions.nov[0][3];
+            let labelD = document.createElement("label");
+            labelD.id = "l" + i;
+            labelD.setAttribute("for", questD.id);
+            labelD.innerHTML = questions.nov[0][3];
+            labelD.appendChild(questD);
+            quesDiv.appendChild(questD);
+            console.log(questD);
+            console.log(labelD);
+            quesDiv.insertBefore(labelD, questD);
+
+        } else if (quesAns1 === false) {
+
             quesAns1 = true;
             newQuesAns = new mc(true, false, false, false);            
             quesDiv.appendChild(newQues);
@@ -185,7 +209,6 @@ function getQuestion() {
             console.log(questA);
             console.log(labelA);
             quesDiv.insertBefore(labelA, questA);
-            let aIsTrue = newQuesAns.a;
 
             let questB = document.createElement("input");
             questB.type = "radio";
@@ -201,17 +224,43 @@ function getQuestion() {
             console.log(questB);
             console.log(labelB);
             quesDiv.insertBefore(labelB, questB);
-            let bIsTrue = newQuesAns.b;
             questB.addEventListener("click", function() {
                 correctCount++;
                 console.log(correctCount);
             });
-            }else {
-                console.log("Question used!");
-                randQues = Math.random() * 10;
-            }
-        } else if (randQues <= 7.5) {
-            if (quesAns2 === false) {
+
+            let questC = document.createElement("input");
+            questC.type = "radio";
+            questC.id = "c" + i;
+            questC.name = "question" + i;
+            questC.value = questions.nov[1][2];
+            let labelC = document.createElement("label");
+            labelC.id = "l" + i;
+            labelC.setAttribute("for", questC.id);
+            labelC.innerHTML = questions.nov[1][2];
+            labelC.appendChild(questC);
+            quesDiv.appendChild(questC);
+            console.log(questC);
+            console.log(labelC);
+            quesDiv.insertBefore(labelC, questC);
+
+            let questD = document.createElement("input");
+            questD.type = "radio";
+            questD.id = "d" + i;
+            questD.name = "question" + i;
+            questD.value = questions.nov[1][3];
+            let labelD = document.createElement("label");
+            labelD.id = "l" + i;
+            labelD.setAttribute("for", questD.id);
+            labelD.innerHTML = questions.nov[1][3];
+            labelD.appendChild(questD);
+            quesDiv.appendChild(questD);
+            console.log(questD);
+            console.log(labelD);
+            quesDiv.insertBefore(labelD, questD);
+
+        } else if (quesAns2 === false) {
+
             quesAns2 = true;
             newQuesAns = new mc(true, false, false, false);            
             quesDiv.appendChild(newQues);
@@ -236,7 +285,6 @@ function getQuestion() {
             console.log(questA);
             console.log(labelA);
             quesDiv.insertBefore(labelA, questA);
-            let aIsTrue = newQuesAns.a;
 
             let questB = document.createElement("input");
             questB.type = "radio";
@@ -252,13 +300,42 @@ function getQuestion() {
             console.log(questB);
             console.log(labelB);
             quesDiv.insertBefore(labelB, questB);
-            let bIsTrue = newQuesAns.b;
-            }else {
-                console.log("Question used!");
-                randQues = Math.random() * 10;
-            }
-        } else if (randQues <= 10) {
-            if (quesAns3 === false) {
+
+            let questC = document.createElement("input");
+            questC.type = "radio";
+            questC.id = "c" + i;
+            questC.name = "question" + i;
+            questC.value = questions.nov[2][2];
+            let labelC = document.createElement("label");
+            labelC.id = "l" + i;
+            labelC.setAttribute("for", questC.id);
+            labelC.innerHTML = questions.nov[2][2];
+            labelC.appendChild(questC);
+            quesDiv.appendChild(questC);
+            console.log(questC);
+            console.log(labelC);
+            quesDiv.insertBefore(labelC, questC);
+            questC.addEventListener("click", function() {
+                correctCount++;
+                console.log(correctCount);
+            });
+
+            let questD = document.createElement("input");
+            questD.type = "radio";
+            questD.id = "d" + i;
+            questD.name = "question" + i;
+            questD.value = questions.nov[2][3];
+            let labelD = document.createElement("label");
+            labelD.id = "l" + i;
+            labelD.setAttribute("for", questD.id);
+            labelD.innerHTML = questions.nov[2][3];
+            labelD.appendChild(questD);
+            quesDiv.appendChild(questD);
+            console.log(questD);
+            console.log(labelD);
+            quesDiv.insertBefore(labelD, questD);
+
+        } else if (quesAns3 === false) {
             quesAns3 = true;
             newQuesAns = new mc(true, false, false, false);            
             quesDiv.appendChild(newQues);
@@ -283,7 +360,6 @@ function getQuestion() {
             console.log(questA);
             console.log(labelA);
             quesDiv.insertBefore(labelA, questA);
-            let aIsTrue = newQuesAns.a;
 
             let questB = document.createElement("input");
             questB.type = "radio";
@@ -299,11 +375,40 @@ function getQuestion() {
             console.log(questB);
             console.log(labelB);
             quesDiv.insertBefore(labelB, questB);
-            let bIsTrue = newQuesAns.b;
-            }else {
-                console.log("Question used!");
-                randQues = Math.random() * 10;
-            }
+
+            let questC = document.createElement("input");
+            questC.type = "radio";
+            questC.id = "c" + i;
+            questC.name = "question" + i;
+            questC.value = questions.nov[3][2];
+            let labelC = document.createElement("label");
+            labelC.id = "l" + i;
+            labelC.setAttribute("for", questC.id);
+            labelC.innerHTML = questions.nov[3][2];
+            labelC.appendChild(questC);
+            quesDiv.appendChild(questC);
+            console.log(questC);
+            console.log(labelC);
+            quesDiv.insertBefore(labelC, questC);
+
+            let questD = document.createElement("input");
+            questD.type = "radio";
+            questD.id = "d" + i;
+            questD.name = "question" + i;
+            questD.value = questions.nov[3][3];
+            let labelD = document.createElement("label");
+            labelD.id = "l" + i;
+            labelD.setAttribute("for", questD.id);
+            labelD.innerHTML = questions.nov[3][3];
+            labelD.appendChild(questD);
+            quesDiv.appendChild(questD);
+            console.log(questD);
+            console.log(labelD);
+            quesDiv.insertBefore(labelD, questD);
+            questD.addEventListener("click", function() {
+                correctCount++;
+                console.log(correctCount);
+            });
         }
     }
 }
