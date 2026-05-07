@@ -14,6 +14,9 @@ let quesAns0 = false;
 let quesAns1 = false;
 let quesAns2 = false;
 let quesAns3 = false;
+let scoreDisplay = document.getElementById("scoreDislay");
+let score = document.getElementById("score");
+let deleteScore = document.getElementById("deleteScore");
 
 console.log(questions.nov)
 
@@ -60,6 +63,28 @@ newQuiz.style.visibility = "hidden";
 submit.addEventListener("click", function() {
     submit.style.visibility = "hidden";
     newQuiz.style.visibility = "visible";
+
+    document.getElementById("a0").disabled = true;
+    document.getElementById("b0").disabled = true;
+    document.getElementById("c0").disabled = true;
+    document.getElementById("d0").disabled = true;
+
+    document.getElementById("a1").disabled = true;
+    document.getElementById("b1").disabled = true;
+    document.getElementById("c1").disabled = true;
+    document.getElementById("d1").disabled = true;
+
+    document.getElementById("a2").disabled = true;
+    document.getElementById("b2").disabled = true;
+    document.getElementById("c2").disabled = true;
+    document.getElementById("d2").disabled = true;
+
+    document.getElementById("a3").disabled = true;
+    document.getElementById("b3").disabled = true;
+    document.getElementById("c3").disabled = true;
+    document.getElementById("d3").disabled = true;
+
+    display();
 });
 newQuiz.addEventListener("click", function() {
     start.style.visibility = "visible";
@@ -449,3 +474,24 @@ function displayTimer() {
         }
     }
 }
+
+let s = 0;
+display();
+function display() {
+    s++;
+    let scoreShow = {
+    score: correctCount, time: "idk"
+}
+    let scoreJSON = JSON.stringify(scoreShow);
+    localStorage.setItem("scoreCount" + s, scoreJSON);
+    let show = localStorage.getItem("scoreCount" + s);
+    let anotherVar = JSON.parse(show);
+    score.innerHTML += anotherVar.score + "<br>";
+}
+
+deleteScore.addEventListener("click", function() {
+    localStorage.clear();
+    console.log("Score Deleted");
+    s = 0;
+    score.innerHTML = "";
+});
